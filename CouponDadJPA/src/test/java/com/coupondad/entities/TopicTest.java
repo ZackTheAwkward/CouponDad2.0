@@ -1,7 +1,6 @@
 package com.coupondad.entities;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -14,12 +13,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
-	
+class TopicTest {
+
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
-	
+	private Topic topic;
+
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("CouponDadJPA");
@@ -33,25 +32,20 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		topic = em.find(Topic.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		topic = null;
 	}
-
 
 	@Test
-	@DisplayName("Testing entity user to database")
+	@DisplayName("Testing entity topic to database")
 	void test() {
-		assertNotNull(user);
-		assertEquals("ZackTheAwkward", user.getUsername());
-		assertEquals("Zack", user.getFirstName());
-		assertEquals("Gaddy", user.getLastName());
-		assertEquals("zack.e.gaddy@gmail.com", user.getEmail());
-		assertEquals("ADMIN", user.getRole());
+		assertNotNull(topic);
+		assertEquals("Grocery", topic.getName());
+		assertEquals("Coupon to save on groceries", topic.getDescription());
 	}
-
 }
