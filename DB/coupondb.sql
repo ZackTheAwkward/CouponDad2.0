@@ -259,6 +259,16 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `post`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `coupondb`;
+INSERT INTO `post` (`id`, `user_id`, `topic_id`, `title`, `content`, `image_url`, `active`, `create_date`, `update_date`) VALUES (1, 1, 1, 'Test', 'Test', 'Test', 1, '2022-06-28', '2022-06-29');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `coupons`
 -- -----------------------------------------------------
 START TRANSACTION;
