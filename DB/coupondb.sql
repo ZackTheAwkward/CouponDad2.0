@@ -269,6 +269,16 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `comment`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `coupondb`;
+INSERT INTO `comment` (`id`, `user_id`, `post_id`, `in_reply_to`, `content`, `create_date`, `active`) VALUES (1, 1, 1, NULL, 'Test Comment', '2022-06-30', 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `coupons`
 -- -----------------------------------------------------
 START TRANSACTION;

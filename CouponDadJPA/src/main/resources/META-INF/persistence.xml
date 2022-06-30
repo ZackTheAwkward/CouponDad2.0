@@ -11,6 +11,9 @@
 	<class>com.coupondad.entities.Store</class>
 	<class>com.coupondad.entities.Post</class>
 	<class>com.coupondad.entities.Coupons</class>
+	<class>com.coupondad.entities.Comment</class>
+	<class>com.coupondad.entities.Category</class>
+	<class>com.coupondad.entities.Address</class>
 
 		<!-- End List Entities Here -->
 
