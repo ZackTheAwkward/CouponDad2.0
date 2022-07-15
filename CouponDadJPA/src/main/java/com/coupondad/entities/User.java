@@ -8,7 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -38,6 +40,16 @@ public class User {
 	
 	@OneToMany
 	private List<Coupons> coupons;
+	
+	@OneToMany
+	private List<Post> posts;
+	
+	@OneToOne
+	@JoinColumn(name = "address_id")
+	private Address adsress;
+	
+	@OneToMany(mappedBy="user")
+	private List<Comment> comments;
 
 	public User() {
 		super();
@@ -113,6 +125,38 @@ public class User {
 
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
+	}
+
+	public List<Coupons> getCoupons() {
+		return coupons;
+	}
+
+	public void setCoupons(List<Coupons> coupons) {
+		this.coupons = coupons;
+	}
+
+	public List<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
+
+	public Address getAdsress() {
+		return adsress;
+	}
+
+	public void setAdsress(Address adsress) {
+		this.adsress = adsress;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 
 	@Override

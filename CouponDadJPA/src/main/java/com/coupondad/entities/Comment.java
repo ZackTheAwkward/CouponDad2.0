@@ -1,6 +1,7 @@
 package com.coupondad.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Comment {
@@ -22,6 +26,21 @@ public class Comment {
 	private LocalDateTime createDate;
 
 	private boolean active;
+	
+	@ManyToOne
+	@JoinColumn(name="post_id")
+	private Post post;
+	
+	@ManyToOne
+	@JoinColumn(name="in_reply_to_id")
+	private Comment comment;
+	
+	@OneToMany(mappedBy="comment")
+	private List<Comment> comments;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
 
 	public Comment() {
 		super();
@@ -57,6 +76,38 @@ public class Comment {
 
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+	
+	public Post getPost() {
+		return post;
+	}
+
+	public void setPost(Post post) {
+		this.post = post;
+	}
+
+	public Comment getComment() {
+		return comment;
+	}
+
+	public void setComment(Comment comment) {
+		this.comment = comment;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override
