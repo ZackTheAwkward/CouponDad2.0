@@ -43,7 +43,6 @@ public class StoreServiceImpl implements StoreService {
 
 	@Override
 	public Store updateStore(String username, Store store, int storeId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
